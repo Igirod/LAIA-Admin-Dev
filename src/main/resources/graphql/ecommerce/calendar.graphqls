@@ -1,0 +1,18 @@
+type CalendarDTO {
+   calendarId: Int!
+   delay: Int
+   typeDelay: String
+   disabledDates: [String]
+   workingDays: [String]
+   exceptionsDates: [String]
+}
+
+type CompleteInvoiceCalendarDTO{
+   tReservation: String
+   reservation: String
+   day: Int
+   month: Int
+   year: Int
+   from: String
+   to: String
+}

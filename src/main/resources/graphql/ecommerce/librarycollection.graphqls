@@ -1,0 +1,34 @@
+type LibraryCollectionOrderDTO {
+   title: String
+   ascDsc: String
+   operation: Int
+   orderProps: [String]
+}
+
+type LibraryCollectionMiniatureDTO {
+   title: String
+   operation: Int
+   collectionMiniature: CollectionMiniatureDTO
+}
+
+type CollectionMiniatureDTO {
+   id: Int
+   miniatureProps: [String]
+   miniatureHeader: [String]
+   miniatureTitle: [String]
+   miniatureSubtitle: [String]
+}
+
+type LibraryCollectionConfigurationDTO {
+   title: String
+   conf: Int
+   ascDsc: Int
+   order: String
+   filter: LibraryCollectionFilterDTO
+   operation: Int
+}
+
+type LibraryCollectionFilterDTO {
+   id: Int
+   alias: String
+}

@@ -1,0 +1,4 @@
+type KeyWordDTO {
+   id: Int!
+   word: String
+}

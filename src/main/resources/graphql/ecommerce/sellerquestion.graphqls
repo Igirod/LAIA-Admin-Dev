@@ -1,0 +1,9 @@
+type SellerQuestionDTO {
+   id: Int!
+   question: String
+   required: Int
+   type: String
+   limit: Int
+   productId: Int
+   options: [String]
+}

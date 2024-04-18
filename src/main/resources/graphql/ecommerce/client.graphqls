@@ -1,0 +1,8 @@
+type CompleteInvoiceClientDTO {
+   id: Int
+   name: String
+   surname: String
+   email: String
+   phone: String
+   media: String
+}

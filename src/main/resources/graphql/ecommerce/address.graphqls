@@ -1,0 +1,8 @@
+type AddressDTO {
+   id: Int!
+   userId: Int!
+   title: String
+   lng: String
+   lat: String
+   direction: String
+}

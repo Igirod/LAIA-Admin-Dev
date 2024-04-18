@@ -1,0 +1,107 @@
+#import "./ecommerce/product.graphqls"
+#import "./ecommerce/productdetail.graphqls"
+#import "./ecommerce/merchant.graphqls"
+#import "./ecommerce/payment.graphqls"
+#import "./ecommerce/imageproduct.graphqls"
+#import "./ecommerce/invoice.graphqls"
+#import "./ecommerce/user.graphqls"
+#import "./ecommerce/combined.graphqls"
+#import "./ecommerce/calendar.graphqls"
+#import "./ecommerce/invenstment.graphqls"
+#import "./ecommerce/article.graphqls"
+#import "./ecommerce/orderproduct.graphqls"
+#import "./ecommerce/login.graphqls"
+#import "./ecommerce/keyword.graphqls"
+#import "./ecommerce/sellerquestion.graphqls"
+#import "./ecommerce/librarycollection.graphqls"
+#import "./ecommerce/library.graphqls"
+#import "./ecommerce/buyer.graphqls"
+
+type Query {
+   products(page: Int!, merchantId: Int!, status: Int): [ProductDTO]
+   gAdminSellSegments(productId: Int!): [ProductDetailDTO]
+   payments(page: Int!, merchantId: Int, status: Int): [PaymentDTO]
+   imagesPId(productId: Int!): [ImageProductDTO]
+   productDSId(productId: Int!): ProductDetailShortDTO
+   sqqCheck(email: String!): RCheckEmailDTO
+   sqqLogin(userId: Int!, password: String!): RLoginUserDTO
+   gOProducts(orderId: Int!, page: Int!, limit: Int): [OrderProductDTO]
+   gAddressUId(userId: Int!, page: Int!): [AddressDTO]
+   combinedShop(slug: String!, userId: Int): CombinedShopDTO
+   combinedProduct(productId: Int!, slug: String!, userId: Int): CombinedProductDTO
+   rProduct(productId: Int!, invoiceId: Int, merchantId: Int!): CombinedProductDetailDTO
+   gCalendar(year: Int!, month: Int!, day: Int!, merchantId: Int!): CalendarDTO
+   gBatches(calendarId: Int!, day: String!, date: String!, exceptionalDate: Int): [BatchDTO]
+   gInvoice(invoiceId: Int!): InvoiceDTO
+   gProductsByTypeFilter(typeFilter: String!, page: Int!) : [ProductDTO]
+   gAdminSellKeyWords(productId: Int!) : [String]
+   gAdminSellInvenstments(productId: Int!) : [InvenstmentDTO]
+   wAdminSellHashtag(hashtag: String) : Int
+   wAdminSellKeyWords(userId: Int!, keyWordValue: String) : [String]
+   gAdminSellQuestions(productId: Int!) : [SellerQuestionDTO]
+   gAdminSellProduct(productId: Int!) : ArticleDTO
+   gAdminSellInvoiceReservation(merchantId: Int!, articlesIds: [Int]) : InvoiceReservationDTO
+   gLibraryConf(libraryId: Int!, userId: Int!) : LibraryConfigDTO
+   gAdminSellInvoice(user: Int!, invoice: Int!) : CompleteInvoiceDTO
+   gCollectionOrder(collectionId: Int!, libraryId: Int!, userId: Int!) : LibraryCollectionOrderDTO
+   gCollectionMiniature(userId: Int!, libraryId: Int!, collectionId: Int!) : LibraryCollectionMiniatureDTO
+   gLibraryMiniatures(libraryId: Int!, userId: Int!) : LibraryMiniatureDTO
+   gCollectionConfiguration(userId: Int!, collectionId: Int!, libraryId: Int!) : LibraryCollectionConfigurationDTO
+   gBuyer(buyerId: Int!) : BuyerDTO
+}
+
+type Mutation {
+   aProductO(orderId: Int!, productId: Int!) : Int
+   uProductO(orderId: Int!, listInvoiceProducts: [OrderProductInputDTO]) : Int
+   uInvoiceS(orderId: Int!, status: String!) : Int
+   uInvoiceN(orderId: Int!, note: String!) : Int
+   uUser(userId: Int!, email: String, password: String, phone: String, name: String, lastName: String) : Int
+   dAddress(addressId: Int!) : Int
+   uAddress(addressId: Int!, userId: Int, title: String, lng: String, lat: String, direction: String) : Int
+   aAddress(userId: Int!, title: String, lng: String, lat: String, direction: String) : Int
+   uOrderS(orderId: Int!, status: String!) : Int
+   uOrderN(orderId: Int!, note: String!) : Int
+   uOrderA(orderId: Int!, direction: String, lat: String, lng: String, type: String, addressNumber: Int) : Int
+   uOrderR(orderId: Int!, date: String, batchId: Int) : Int
+   uOrderM(orderId: Int!, message: String) : Int
+   uProduct(productId: Int!, title: String, price: Float, stock: Int, status: Int) : Int
+   dProduct(productId: Int!) : Int
+   cBatch(calendarId: Int!, days: String, date: String, title: String, fromTime: String, toTime: String, maxLimit: Int) : Int
+   uBatch(batchId: Int!, days: String, date: String, title: String, fromTime: String, toTime: String, maxLimit: Int) : Int
+   dBatch(batchId: Int!) : Int
+   cInvenstment(productId: Int!, amount: Float, note: String, title: String) : Int
+   uInvenstment(invenstmentId: Int!, amount: Float, note: String, title: String) : Int
+   dInvenstment(invenstmentId: Int!) : Int
+   cHashtag(value: String!) : Int
+   uHashtag(hashtagId: Int!, value: String!) : Int
+   dHashtag(hashtagId: Int!) : Int
+   cHashtagProduct(productId: Int!, hashtagId: Int!) : Int
+   dHashtagProduct(productId: Int!, hashtagId: Int!) : Int
+   cKeyWord(word: String!, userId: Int!) : Int
+   uKeyWord(keyWordId: Int!, word: String!) : Int
+   dKeyWord(keyWordId: Int!) : Int
+   cKeyWordProduct(productId: Int!, keyWordId: Int!) : Int
+   dKeyWordProduct(productId: Int!, keyWordId: Int!) : Int
+   cSellerQuestion(question: String!, required: Int, type: String!, limit: Int, productId: Int!) : Int
+   uSellerQuestion(sellerQuestionId: Int!, question: String, required: Int, type: String, limit: Int) : Int
+   dSellerQuestion(sellerQuestionId: Int!) : Int
+   cCategory(title: String!) : Int
+   uCategory(categoryId: Int!, title: String!) : Int
+   dCategory(categoryId: Int!) : Int
+   cCategoryProduct(categoryId: Int!, productId: Int!) : Int
+   dCategoryProduct(categoryId: Int!, productId: Int!) : Int
+   cProduct(productId: Int, userId: Int, title: String, price: Float, stock: Int, tStock: String) : Int
+   uAdminSellAssociation(productId: Int!, userId: Int!) : Int
+   uAdminSellHashtag(productId: Int!, hashtag: String) : Int
+   uAdminSellQuestion(sellerQuestionId: Int!, value: String, type: String, required: Int, limit: Int, options: [String]) : Int
+   uAdminSellKeyWords(productId: Int!, userId: Int!, keyWords: [String]): [String]
+   uLibraryRename(libraryId: Int!, title: String!, userId: Int!) : Int
+   uLibraryMiniatures(libraryId: Int!, miniatureHeader: String!, miniatureTitle: String!, miniatureSubtitle: String!) : Int
+   uCollectionOrder(collection: Int!, ascDsc: Int!, orderProps: String) : Int
+   uCollectionRename(collection: Int!, title: String!, library: Int!) : Int
+   dCollection(collectionId: Int!) : Int
+   uCollectionMiniature(collectionId: Int!, miniatureHeader: String!, miniatureTitle: String!, miniatureSubtitle: String!) : Int
+   cBuyer(merchantId: Int!, name: String, email: String, phone: String, count: Int, date: String) : Int
+   uBuyer(buyerId: Int!, name: String, email: String, phone: String, count: Int, date: String) : Int
+   dBuyer(buyerId: Int!) : Int
+}

@@ -1,0 +1,15 @@
+type LibraryConfigDTO {
+   type: Int
+   conf: Int
+   title: String
+   operation: Int!
+}
+
+type LibraryMiniatureDTO {
+   title: String
+   miniatureProps: [String]
+   miniatureHeader: [String]
+   miniatureTitle: [String]
+   miniatureSubtitle: [String]
+   operation: Int!
+}

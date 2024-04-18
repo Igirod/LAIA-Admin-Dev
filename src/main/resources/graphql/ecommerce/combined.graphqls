@@ -1,0 +1,49 @@
+#import "./ecommerce/imageproduct.graphqls"
+#import "./ecommerce/productdetail.graphqls"
+#import "./ecommerce/product.graphqls"
+
+type CombinedShopDTO {
+   merchantId: Int!
+   merchantTitle: String
+   products: [ProductDTO]
+   invoiceId: Int
+   invoiceCount: Int
+   userId: Int
+   firstShippingDate: String
+   batchId: Int
+   batchFrom: String
+   batchTo: String
+}
+
+type CombinedProductDTO {
+   merchantId: Int!
+   merchantTitle: String
+   productId: Int
+   productTitle: String
+   productFrontPage: String
+   productPrice: Float
+   images: [ImageProductDTO]
+   details: [ProductDetailDTO]
+   productStock: Int
+   invoiceId: Int
+   invoiceCount: Int
+   userId: Int
+   check: Int
+   merchantDirection: String
+   firstShippingDate: String
+   batchId: Int
+   batchFrom: String
+   batchTo: String
+}
+
+type CombinedProductDetailDTO {
+   stock: Int
+   check: Int
+   merchantDirection: String
+   firstShippingDate: String
+   images: [ImageProductDTO]
+   details: [ProductDetailDTO]
+   batchId: Int
+   batchFrom: String
+   batchTo: String
+}

@@ -1,0 +1,6 @@
+type InvenstmentDTO {
+   id: Int!
+   productId: Int
+   amount: Float
+   note: String
+}

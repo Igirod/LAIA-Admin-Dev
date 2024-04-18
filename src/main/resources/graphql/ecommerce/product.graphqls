@@ -1,0 +1,28 @@
+type ProductDTO {
+   id: Int!
+   title: String
+   price: Float
+   stock: Int
+   frontPage: String
+   merchantId: Int
+   status: Int
+   createAt: String
+   typeOfSale: String
+   manufacturingTime: Int
+   typeOfPrice: String
+}
+
+type ProductInputDTO {
+   id: Int!
+   image: String
+   price: Float
+   stock: Int
+   quantity: Int
+}
+
+enum TypeFilter {
+   CHEAP,
+   EXPENSIVE,
+   NEW,
+   RELEVANT
+}

@@ -1,0 +1,6 @@
+type CompleteInvoiceMerchantDTO {
+   id: Int!
+   title: String
+   email: String
+   phone: String
+}

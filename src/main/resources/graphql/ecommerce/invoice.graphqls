@@ -1,0 +1,47 @@
+#import "./ecommerce/product.graphqls"
+#import "./ecommerce/merchant.graphqls"
+#import "./ecommerce/article.graphqls"
+#import "./ecommerce/direction.graphqls"
+#import "./ecommerce/calendar.graphqls"
+#import "./ecommerce/client.graphqls"
+
+type InvoiceDTO {
+   id: Int!
+   merchantTitle: String!
+   userEmail: String!
+   userName: String!
+   userLastName: String!
+   code: String!
+   reservation: String!
+   reservationType: String!
+   total: Float!
+   message: String!
+   status: String!
+   voucher: String!
+   note: String!
+   batchFrom: String!
+   batchTo: String!
+   createdAt: String!
+   updatedAt: String!
+   addressLat: String!
+   addressLng: String!
+   addressDirection: String!
+   products: [ProductDTO]!
+}
+
+type InvoiceReservationDTO {
+   batchId: Int
+   batchFrom: String
+   batchTo: String
+   reservation: String
+}
+
+type CompleteInvoiceDTO {
+   cli: CompleteInvoiceClientDTO
+   merchant: CompleteInvoiceMerchantDTO
+   articles: [CompleteInvoiceArticleDTO]
+   direction: CompleteInvoiceDirectionDTO
+   calendar: CompleteInvoiceCalendarDTO
+   message: String
+   operation: Int
+}

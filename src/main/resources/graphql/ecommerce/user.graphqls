@@ -1,0 +1,22 @@
+type UserDTO {
+   id: Int!
+   name: String
+   email: String
+   lastName: String
+   password: String
+   phone: String
+   image: String
+   first: Int
+   status: Int
+   merchantEmail: String
+   merchantSlug: String
+   merchantMessage: Int
+   merchantPhone: Int
+   merchantImage: String
+   typeShipment: TypeShipment
+}
+
+enum TypeShipment {
+   PICK_UP
+   DELIVERY
+}

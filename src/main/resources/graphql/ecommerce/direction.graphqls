@@ -1,0 +1,25 @@
+type InvoiceDirectionDTO {
+   code: String
+   country: String
+   state: String
+   city: String
+   Street: String
+   number: String
+   ref: String
+   note: String
+   lat: String
+   lon: String
+}
+
+type CompleteInvoiceDirectionDTO {
+   code: String
+   country: String
+   state: String
+   city: String
+   street: String
+   number: String
+   ref: String
+   note: String
+   lat: String
+   lng: String
+}

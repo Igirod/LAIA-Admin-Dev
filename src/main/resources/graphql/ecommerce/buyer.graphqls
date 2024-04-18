@@ -1,0 +1,9 @@
+type BuyerDTO {
+   id: Int!
+   merchantId: Int
+   name: String
+   email: String
+   phone: String
+   count: Int
+   date: String
+}

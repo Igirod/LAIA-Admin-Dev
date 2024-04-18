@@ -1,0 +1,5 @@
+type ImageProductDTO {
+   id: Int!
+   productId: Int
+   url: String
+}

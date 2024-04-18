@@ -1,0 +1,8 @@
+type BatchDTO {
+   id: Int!
+   title: String
+   from: String
+   date: String
+   to: String
+   calendarId: Int!
+}
